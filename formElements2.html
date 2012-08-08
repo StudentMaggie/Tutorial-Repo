@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Form Elements Example, Part 2</title>
+
+<script language="Javascript" type="text/javascript">
+
+function formStuff() {
+		var message ="";
+    var ma=document.getElementById("messageArea");
+
+    var radioButtons=document.elementsForm.radio1;
+    for (i=0; i<radioButtons.length; i++) {
+    	if (radioButtons[i].checked)
+    		message += "<p>The radio button "+radioButtons[i].value+" is checked.<br />";
+    }
+
+    var mealMenu=document.elementsForm.mealSelect;
+    ma.innerHTML+="Selected meal is "+mealMenu[mealMenu.selectedIndex].text+"<br />";
+
+		message +="</p>"
+    ma.innerHTML+=message;
+}
+
+function checkRadios() {
+	//check all the radio buttons
+	var radioButtons=document.elementsForm.radio1;
+	for (i=0; i<radioButtons.length; i++) {
+	   radioButtons[i].checked=true;
+		 }
+}
+
+function dropDownDinner(){
+	var menu=document.elementsForm.mealSelect;
+	menu[0].text="Chicken pot pie";
+	menu[0].selected=true;
+	menu[1].text="Steak au poivre";
+	menu[1].selected=false;
+	menu[2].text="Cioppino";
+	menu[2].selected=false;
+}
+
+function dropDownBreakfast(){
+	var menu=document.elementsForm.mealSelect;
+	menu[0].text="Bacon and eggs";
+	menu[0].selected=true;
+	menu[1].text="Pancakes and sausage";
+	menu[1].selected=false;
+	menu[2].text="Bagel and fruit salad";
+	menu[2].selected=false;
+}
+
+</script>
+
+</head>
+
+
+<body>
+<h1>Form Elements Example, Radio Buttons and Drop-down Lists</h1>
+
+<form name="elementsForm">
+<p>
+<b>Radio buttons: </b><br />
+<input type="radio" name="radio1" value="milk" checked> Milk
+<input type="radio" name="radio1" value="cream"> Cream
+<input type="radio" name="radio1" value="halfnhalf">Half and half
+<br />
+
+<b>Meal: </b><br />
+<select name="mealSelect" size=5>
+<option value="choice1" selected>Generic food 1
+<option value="choice2">Generic food 2
+<option value="choice3">Generic food 3
+</select>
+
+</p>
+<p><input type="Button" value="Check The Radios" onclick="checkRadios();"></p>
+<p><input type="Button" value="Drop-down For Dinner" onclick="dropDownDinner();"></p>
+<p><input type="Button" value="Drop-down For Breakfast" onclick="dropDownBreakfast();"></p>
+
+<p><input TYPE="BUTTON" VALUE="Show Form Info" onClick="formStuff();"></p>
+</form>
+<p id="messageArea"></p>
+</body>
+</html>
